@@ -4,9 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3c5fdd2bab1a9c0211bdf172da20ba0",
-    "content-hash": "469383f6d5bb69e957288be1959e8b6b",
+    "hash": "58acaf5a5eaeaa080ec5e6756867834d",
+    "content-hash": "f9d022ce8291f30840d123e646a988a5",
     "packages": [
+        {
+            "name": "calcinai/xero-php",
+            "version": "v1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/calcinai/xero-php.git",
+                "reference": "f5cd34c3b620e88cefa28640793f0a5afefc55fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/calcinai/xero-php/zipball/f5cd34c3b620e88cefa28640793f0a5afefc55fe",
+                "reference": "f5cd34c3b620e88cefa28640793f0a5afefc55fe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-openssl": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "fabpot/goutte": "~2.0",
+                "phpunit/phpunit": "~4.7",
+                "twig/twig": "1.16.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "XeroPHP\\": "src/XeroPHP/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A client implementation of the Xero API, with a cleaner OAuth interface and ORM-like abstraction.",
+            "homepage": "https://github.com/calcinai/xero-php",
+            "time": "2016-07-12 15:09:06"
+        },
         {
             "name": "composer/installers",
             "version": "v1.2.0",

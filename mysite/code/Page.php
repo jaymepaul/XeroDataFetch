@@ -26,6 +26,7 @@ class Page_Controller extends ContentController {
 	 * @var array
 	 */
 	private static $allowed_actions = array (
+		'Form'
 	);
 
 	public function init() {
@@ -33,5 +34,54 @@ class Page_Controller extends ContentController {
 		// You can include any CSS or JS required by your project here.
 		// See: http://doc.silverstripe.org/framework/en/reference/requirements
 	}
+
+	public function Form(){
+
+		$fields = new FieldList(
+            TextField::create('Name', 'Your Name'),
+            EmailField::create('Email', 'Your Email'),
+            PhoneNumberField::create('Phone', 'Your Phone')
+        );
+
+        $actions = new FieldList(
+            FormAction::create("doSayHello")->setTitle("Say hello")
+        );
+
+        $required = new RequiredFields('Name', 'Email', 'Phone');
+
+        $form = new Form($this, 'Form', $fields, $actions, $required);
+
+        return $form;
+	}
+
+	public function doSayHello($data, $form){
+
+		$member = Member::get()->filter(array(
+    		
+    		'Email' => $data["Email"],
+    		
+		))->first();
+
+		if($member){
+			// if member exists in DB
+			// then launch error message - 'member exists'
+
+		}	
+		else{
+			$member = new Member();
+			$member->FirstName = $data["Name"];
+			$member->Email = $data["Email"];
+			$member->Phone = $data["Phone"];
+
+			$member->write();
+		}
+		
+		return $this->redirectBack();
+
+
+		// var_dump($data);
+		// die;
+	}
+
 
 }
